@@ -1,0 +1,223 @@
+body {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/048/604/original/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner.jpg?1665772663");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  color: white;
+  font-family: 'Helvetica', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #26C9FC;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+q {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.container {
+  padding: 40px;
+}
+ 
+
+/* Header styles */
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.info {
+  padding: 0 20px;
+}
+
+.search {
+  width: 200px;
+  font-size: 14px;
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 10px;
+}
+
+.btn {
+  width: 50px;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 10px;
+  transition: all 2.5ms ease-in-out;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.1);
+}
+
+.current-location-info {
+  width: 100px;
+  color: white;
+  margin-left: 10px;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 10px;
+  transition: all 2.5ms ease-in-out;
+}
+
+.current-location-info:hover,
+.current-location-info:focus {
+  background-color: white;
+  transform: scale(1.1);
+} 
+
+.form-control {
+  max-width: 400px;
+}
+
+
+/* Current weather styles */
+
+.current {
+  max-width: 1000px;
+  height: 100%;
+  border: 2px solid rgba(0,0,0,.125);
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgb(0 0 0 / 30%);
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px auto;
+
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.current:hover,
+.current:focus {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.current-city-extra,
+.current-city-main,
+.current- image {
+  margin: 0 auto;
+}
+
+.current-temp {
+  padding: 25px;
+  text-align: center;
+}
+
+.current-temp-now {
+  font-size: 30px;
+  font-weight: 900px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.125);
+}
+
+.units {
+  position: relative;
+  top: -10px;
+}
+
+.current-conditions{
+  padding: 40px;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.current-image {
+  margin: 10px auto;
+  display: block;
+  height: auto;
+}
+
+.current-city-extra {
+  margin-bottom: 0;
+}
+
+
+/* Card styles */
+
+.card-body {
+  text-align: center;
+}
+
+.card {
+  height: 100%;
+  background-color: transparent;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+}
+
+.card:hover,
+.card:focus {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.card-title {
+  font-size: 22px;
+}
+
+.card-text {
+  font-size: 12px;
+}
+
+.card-img-top {
+  display: block;
+  margin: 0 auto;
+}
+
+.card-text-date {
+  font-size: 18px;
+}
+
+.card-temp-max {
+  font-size: 16px;
+  font-weight: 900px;
+}
+
+
+/* Footer styles */
+
+.signature {
+  font-family: 'PT Mono', monospace;
+  font-size: 14px;
+  text-align: center;
+  color:rgba(255,255,255,.8);
+  margin-top: 20px;
+  padding-top: 30px;
+}
