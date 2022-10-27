@@ -1,8 +1,7 @@
-// Current date
 
 function formatDate(timestamp){
   let currentDate = new Date(timestamp);
-  
+  console.log(timestamp);
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   let day = days[currentDate.getDay()];
   
@@ -18,15 +17,17 @@ function formatDate(timestamp){
 
 function formatTime(timestamp) {
   let currentDate = new Date(timestamp);
+  console.log(timestamp);
   let hour = currentDate.getHours();
+  console.log(hour);
   let minute = currentDate.getMinutes();
 
-  if (hour < 10) hour= "0"+ hour;
-  if (minute < 10) minute= "0" + minute;
+  if (hour < 10) {hour= "0"+ hour;}
+  if (minute < 10) {minute= "0" + minute;}
 
   let time = hour + ":" + minute;
 
-  return (time);
+  return time;
 }
 
 function formatDay(timestamp) {
@@ -36,149 +37,16 @@ function formatDay(timestamp) {
 
   return days[day];
 }
-// setInterval(clock, 1000);
-// clock();
 
-// }, 1000);
-
-// Searched date
-
-// function formatDate(timestamp){   
-//   // setInterval(function(){
-//     let currentDate = new Date(timestamp);
-    
-//     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-//     let day = days[currentDate.getDay()];
-    
-//     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-//     let month = months[currentDate.getMonth()];
-    
-//     let date = currentDate.getDate();
-//     let year = currentDate.getFullYear();
-
-//     let hour = currentDate.getHours();
-//     if (hour < 10) {hour= "0"+ hour;}
-//     let minute = currentDate.getMinutes();
-//     if (minute < 10) {minute= "0" + minute};
-
-//     let time = hour + ":" + minute;
-    
-//     return `${day} ${month} ${date}, ${year}    ${time}`; 
-    // let nowDate = document.querySelector("#dayMonthYear");
-    // nowDate.innerHTML = fullDate;
-
-    // let hour = currentDate.getHours();
-    // let minute = currentDate.getMinutes();
-
-    // if (hour < 10) hour= "0"+ hour;
-    // if (minute < 10) minute= "0" + minute;
-
-    // let time = hour + ":" + minute;
-
-    // let nowTime = document.querySelector("#hoursMinutes");
-    // nowTime.innerHTML = time;
-  // }, 1000);
-// }
-
-// Searched time
-
-// Current time
-
-// setInterval(function() {
-//   let date = new Date(); 
-//   let hour = date.getHours();
-//   let minute = date.getMinutes();
-
-//   if (hour < 10) hour= "0"+ hour;
-//   if (minute < 10) minute= "0" + minute;
-
-//   let time = hour + ":" + minute;
-
-//   let nowTime = document.querySelector("#hoursMinutes");
-//   nowTime.innerHTML = time;
-// }, 1000);
-
-
-// Search city
-
-// function handleSubmit(event){
-//   event.preventDefault();
-//   let searchInput = document.querySelector("#search-text-input");
-
-//   let city= (searchInput.value).trim().toLowerCase();
-  
-//   if (city !== "") {
-//     city = city.charAt(0).toUpperCase() + city.slice(1);
-//   } else {
-//     alert("Please, type city name 🏙️")
-//   };
-  
-//   let units = "metric";
-//   let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-//   axios.get(apiUrl).then(showCurrentWeather);
-// }
-
-// let form = document.querySelector("#search-form");
-
-// form.addEventListener("submit", handleSubmit);
-
-
-// // Current temperature
-
-// function showCelsius(event) {
-//   event.preventDefault();
-//   let currentTemp = document.querySelector(".current-temp-now");
-//   let formulaCelsius = currentTemp.innerHTML;
-//   formulaCelsius = Number(formulaCelsius);
-//   currentTemp.innerHTML = Math.round((formulaCelsius - 32)/ 1.8);
-// }
-
-// let tempCelsius = document.querySelector("#celsius-link-current");
-// tempCelsius.addEventListener("click", showCelsius);
-
-// function showFahrenheit(event) {
-//   event.preventDefault();
-//   let currentTemp = document.querySelector(".current-temp-now");
-//   let formulaFahrenheit = currentTemp.innerHTML;
-//   formulaFahrenheit = Number(formulaFahrenheit);
-//   currentTemp.innerHTML = Math.round((formulaFahrenheit * 9)/5+32);
-// }
-
-// let tempFahrenheit = document.querySelector("#fahrenheit-link-current");
-// tempFahrenheit.addEventListener("click", showFahrenheit);
-
-
-// // Current weather
-
-// function showCurrentWeather(response) {
-  
-//   let city = response.data.name;
-//   let currentCity = document.querySelector("#search-city");
-//   currentCity.innerHTML = city;
-
-//   let temp = Math.round(response.data.main.temp);
-//   let currentTemp = document.querySelector(".current-temp-now");
-//   currentTemp.innerHTML = temp;
-
-//   let description =response.data.weather[0].main;
-//   let currentDescription = document.querySelector("#description");
-//   currentDescription.innerHTML = description;
-
-//   let humidity = response.data.main.humidity;
-//   let currentHumidity= document.querySelector("#humidity");
-//   currentHumidity.innerHTML = `Humidity: ${humidity}% 💧`;
-
-//   let wind = Math.round((response.data.wind.speed)*3.6);
-//   let currentWind = document.querySelector("#wind");
-//   currentWind.innerHTML = `Wind: ${wind}km/h 💨`;
-
-//   let nowDate = document.querySelector("#dayMonthYear");
-//   nowDate.innerHTML = formatDate(response.data.dt * 1000);
-// }
-
-
-// // Current location + weather
+function showMonthDate(timestamp){
+  let currentDate = new Date(timestamp * 1000);
+  let month = Number(currentDate.getMonth())+1;
+  date = currentDate.getDate();
+  if (date < 10) date= "0"+ date;
+  if (month < 10) date= "0"+ month;
+  let monthDate = `${month} / ${date}`;
+  return (monthDate);
+}
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -196,6 +64,8 @@ function displayForecast(response) {
             <div class="card-body">
               <h3 class="card-title">${formatDay(forecastDay.dt)}
               </h3>
+              <p class="card-text card-text-date" #month-date-forecast>${showMonthDate(forecastDay.dt)} 
+              </p>
               <img
                 src="http://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
@@ -204,7 +74,7 @@ function displayForecast(response) {
                 class="card-img-top"
                 width="42"
               />
-              <p class="card-text card-text-temp">
+              <p class="card-text card-text-temp" id = "month-date-forecast">
                 <span class="card-temp-max">${Math.round(forecastDay.temp.max
                 )}°</span>
                 <span class="card-temp-min"> ${Math.round(forecastDay.temp.min
@@ -223,9 +93,8 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let units = "metric";
   let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&${units}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -238,13 +107,13 @@ function showCurrentWeather(response) {
   celsiusTemperature = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
-  // let temperatureMaxElement =document.querySelector("#current-temp-max");
-  // let maxTemperature = response.data.main.temp_max;
-  // temperatureMaxElement.innerHTML = Math.round(maxTemperature);
+  let temperatureMaxElement =document.querySelector("#current-temp-max");
+  let maxTemperature = response.data.main.temp_max;
+  temperatureMaxElement.innerHTML = Math.round(maxTemperature);
 
-  // let temperatureMinElement =document.querySelector("#current-temp-min");
-  // let minTemperature = response.data.main.temp_min;
-  // temperatureMinElement.innerHTML = Math.round(minTemperature);
+  let temperatureMinElement =document.querySelector("#current-temp-min");
+  let minTemperature = response.data.main.temp_min;
+  temperatureMinElement.innerHTML = Math.round(minTemperature);
 
   let description =response.data.weather[0].main;
   let currentDescription = document.querySelector("#description");
@@ -275,9 +144,8 @@ function showCurrentWeather(response) {
 }
 
 function search(city) { 
-  let units = "metric";
   let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
   axios.get(apiUrl).then(showCurrentWeather);
 }
 
@@ -303,14 +171,16 @@ function showFahrenheit(event) {
   let fahrenheitTemperature = (celsiusTemperature * 9)/5+32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 
-  // let temperatureMaxElement =document.querySelector("#current-temp-max");
-  // let maxTemperature = response.data.main.temp_max;
-  // console.log(maxTemperature);
-  // temperatureMaxElement.innerHTML = Math.round((maxTemperature* 9)/5+32);
-
-  // let temperatureMinElement =document.querySelector("#current-temp-min");
-  // let minTemperature = response.data.main.temp_min;
-  // temperatureMinElement.innerHTML = Math.round((minTemperature* 9)/5+32);    
+//   let mainTemperature = document.querySelector(".main-temp");
+//   let mainMax = document.querySelector(".max");
+//   let mainMin = document.querySelector(".min");
+//   let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+//   let fahrenheitMax = (celsiusMax * 9) / 5 + 32;
+//   let fahrenheitMin = (celsiusMin * 9) / 5 + 32;
+//   mainTemperature.innerHTML = `${Math.round(fahrenheitTemperature)}º`;
+//   mainMax.innerHTML = `${Math.round(fahrenheitMax)}º /`;
+//   mainMin.innerHTML = `${Math.round(fahrenheitMin)}º`;
+// }
 }
 
 function showCelsius(event) {
@@ -333,3 +203,19 @@ let celsiusLink = document.querySelector("#celsius-link-current");
 celsiusLink.addEventListener("click", showCelsius);
 
 search("Lutsk");
+
+function showCurrentLocation(location) {
+  let lat = location.coords.latitude;
+  let lon = location.coords.longitude;
+  let units = "metric";
+  let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+  axios.get(apiUrl).then(showCurrentWeather);
+}
+
+function getCurrentLocation(){
+  navigator.geolocation.getCurrentPosition(showCurrentLocation);
+}
+
+let currentBtn= document.querySelector("#current-location");
+currentBtn.addEventListener("click", getCurrentLocation);

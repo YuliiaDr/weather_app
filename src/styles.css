@@ -17,12 +17,11 @@ a {
   color: #26C9FC;
 }
 
-/* a:hover,
-a:focus,
-a:active {
-  color: #26C9FC;
+a:hover,
+a:focus {
+  color: white;
   cursor: pointer;
-} */
+}
 
 ul {
   list-style: none;
@@ -77,30 +76,17 @@ q {
   transition: all 2.5ms ease-in-out;
 }
 
-.btn:hover,
-.btn:focus {
-  transform: scale(1.1);
-}
-
 .current-location-info {
-  width: 100px;
+  width: 85px;
+  height: 45px;
   color: white;
   margin-left: 10px;
+  text-align: center;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 10px;
   transition: all 2.5ms ease-in-out;
 }
-
-.current-location-info:hover,
-.current-location-info:focus {
-  background-color: white;
-  transform: scale(1.1);
-} 
-/* 
-.form-control {
-  max-width: 400px;
-} */
 
 
 /* Current weather styles */
@@ -132,17 +118,25 @@ q {
   margin: 0 auto;
 }
 
+#search-city {
+  text-align: center;
+}
+
 .current-temp {
   padding: 25px;
   text-align: center;
 }
 
 .current-temp-now {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 900px;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid rgba(0,0,0,.125);
+}
+
+#current-temp-min {
+  font-size: 12px;
 }
 
 .active {
