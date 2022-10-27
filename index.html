@@ -26,17 +26,16 @@
         </div>
       </div>
       <div class="nav">
-        <form id = "search-form">
-          <input type="text" placeholder="Search for a city" class="search" autofocus id="search-text-input">
+        <form class="search-form" id = "search-form">
+          <input type="search" placeholder="Search for a city" class="search" autofocus autocomplete="off" id="search-text-input">
           <button
-          type="submit"
-          class="btn btn-outline-light"
-          title="button"
-        >
-          <i class="fa-solid fa-magnifying-glass-location"></i>
+            type="submit"
+            title="search-btn"
+            class="btn btn-outline-light">
+            <i class="fa-solid fa-magnifying-glass-location"></i>
         </button>
         </form>
-        <button type= "submit" class= "btn current-location-info" id="current-location">Current</button>
+        <!-- <button type= "submit" class= "btn current-location-info" id="current-location">Current</button> -->
       </div>
     </div>
   </header>
@@ -46,18 +45,19 @@
       <div class="current-city-main g-col-3">
         <h2 id = "search-city"></h2>
         <p class="current-temp">
-          <span class="current-temp-now float-left"></span>
+          <span class="current-temp-now float-left" id="current-temp-now"></span>
             <span class="units">
-              <a href="#" id = "celsius-link-current">°C</a> | 
+              <a href="#" id = "celsius-link-current" class="active">°C</a> | 
               <a href="#" id = "fahrenheit-link-current">°F</a>
             </span>
           <br />
           <br />
-          29°C / 22°C 
+          <span id="current-temp-max"></span>° / 
+          <span id="current-temp-min"></span>°
         </p>
       </div>
       <div class="current-image g-col-4">
-        <img src="images/sun.png" alt="Weather conditions"width="200">
+        <img src="" alt="Weather conditions" width="200" id="icon">
       </div>
       <div class="current-city-extra g-col-4">
         <ul class="current-conditions">
@@ -70,8 +70,8 @@
     </div>
   </section>
 
-  <section class="future-forecast">
-    <div class="row row-cols-1 row-cols-md-5 g-5">
+  <div class="weather-forecast" id="forecast">
+    <!-- <div class="row row-cols-1 row-cols-md-5 g-5">
       <div class="col">
         <div class="card">
           <div class="card-body">
@@ -152,8 +152,8 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </div> -->
+  </div>
   <footer>
     <P class="signature">
       This project was coded by <a href="mailto:yuliia.demir1986@gmail.com" class="signature-link">Yuliia Demir</a> and is <a href="https://github.com/YuliiaDr/weather_app" class="signature-link"> open-sourced on GitHub</a> and <a href="https://app.netlify.com/sites/weatherapponline/overview" class="signature-link">hosted on Netlify</a>

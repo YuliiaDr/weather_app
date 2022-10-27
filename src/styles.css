@@ -14,19 +14,19 @@ body {
 
 a {
   text-decoration: none;
-  color: white;
+  color: #26C9FC;
 }
 
-a:hover,
+/* a:hover,
 a:focus,
 a:active {
   color: #26C9FC;
   cursor: pointer;
-}
+} */
 
 ul {
   list-style: none;
-  padding-left: 0;
+  padding-left: 0;              
 }
 
 q {
@@ -63,7 +63,7 @@ q {
 .search {
   width: 200px;
   font-size: 14px;
-  margin: 5px 0;
+  margin: 5px;
   padding: 5px;
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 10px;
@@ -97,10 +97,10 @@ q {
   background-color: white;
   transform: scale(1.1);
 } 
-
+/* 
 .form-control {
   max-width: 400px;
-}
+} */
 
 
 /* Current weather styles */
@@ -143,6 +143,10 @@ q {
   padding: 10px;
   border-radius: 10px;
   border: 1px solid rgba(0,0,0,.125);
+}
+
+.active {
+  color: white;
 }
 
 .units {
