@@ -135,9 +135,9 @@ q {
   border: 1px solid rgba(0,0,0,.125);
 }
 
-#current-temp-min {
+/* #current-temp-min {
   font-size: 12px;
-}
+} */
 
 .active {
   color: white;
@@ -162,6 +162,10 @@ q {
 
 .current-city-extra {
   margin-bottom: 0;
+}
+
+#description::first-letter {
+  text-transform: capitalize;
 }
 
 
