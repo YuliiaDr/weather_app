@@ -127,10 +127,9 @@ function showCurrentWeather(response) {
 
   let currentWind = document.querySelector("#wind");
   let wind = response.data.wind.speed;
-  console.log(wind);
+
   if (units === "metric") {
     wind = Math.round(response.data.wind.speed * 3.6);
-    console.log(wind);
     currentWind.innerHTML = `Wind: ${wind}km/h 💨`;
   } else if (units === "imperial") {
     wind = Math.round(response.data.wind.speed);
@@ -149,8 +148,12 @@ function showCurrentWeather(response) {
 }
 
 function search(city) { 
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`
-  axios.get(apiUrl).then(showCurrentWeather);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl)
+  .then(showCurrentWeather).catch(err => {
+      alert(
+        `Are you sure you didn't forget to write your city name and it is correct?🏙️ If so, we are sorry, but we don't know the weather for this city. Try going to https://www.google.com/search?q=weather+${city}. Good luck!`);
+  });
 }
 
 function handleSubmit(event){
@@ -158,12 +161,14 @@ function handleSubmit(event){
   let searchInput = document.querySelector("#search-text-input");
 
   let cityInputElement= (searchInput.value).trim().toLowerCase();
+  cityInputElement = cityInputElement.charAt(0).toUpperCase() + cityInputElement.slice(1);
   
-  if (cityInputElement !== "") {
-    cityInputElement = cityInputElement.charAt(0).toUpperCase() + cityInputElement.slice(1);
-  } else {
-    alert("Please, type city name 🏙️")
-  };
+  // if (cityInputElement !== "") {
+  //   cityInputElement = cityInputElement.charAt(0).toUpperCase() + cityInputElement.slice(1);
+  // } else {
+  //   alert("Please, type city name 🏙️")
+  // };
+
   search(cityInputElement);
 }
 
