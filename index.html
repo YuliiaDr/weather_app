@@ -35,7 +35,7 @@
             <i class="fa-solid fa-magnifying-glass-location"></i>
         </button>
         </form>
-        <button type= "submit" title = "Current location weather" class= "btn btn-outline-light current-location-info" id="current-location"><i class="fa-solid fa-location-dot"></i></button>
+        <button type= "submit" title = "Search current location" class= "btn btn-outline-light current-location-info" id="current-location"><i class="fa-solid fa-location-dot"></i></button>
       </div>
     </div>
   </header>
@@ -43,7 +43,10 @@
   <section class="current-forecast">
     <div class="current grid">
       <div class="current-city-main g-col-3">
-        <h2 id = "search-city"></h2>
+        <h2>
+          <span id = "search-city"></span>, 
+          <span id = "search-country"></span>
+        </h2>
         <p class="current-temp">
           <span class="current-temp-now float-left" id="current-temp-now"></span>
             <span class="units">
@@ -66,7 +69,11 @@
           <li id="humidity">Humidity: 75% 💧</li>
           <li id="wind">Wind: 10km/h 💨</li>
         </ul>
-        <q cite="https://lubbil.ngontinh24.com/article/200-awesome-weather-quotes-quote-cc">Keep your face to the sun and you will never see the shadows.</q>
+        <blockquote>
+          <p class = "blockquote" id="blockquote">
+            "Keep your face to the sun and you will never see the shadows."
+          </p>
+        </blockquote>
       </div>
     </div>
   </section>

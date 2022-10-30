@@ -101,7 +101,6 @@ function getForecast(coordinates) {
 
 function showCurrentWeather(response) {
   cityInputElement = response.data.city;
-  console.log(cityInputElement);
   let currentCity = document.querySelector("#search-city");
   
   if(cityInputElement === undefined) {
@@ -110,20 +109,17 @@ function showCurrentWeather(response) {
   } else {
     currentCity.innerHTML = cityInputElement;
   }
-  
-  // let dateTimeElement = response.data.dt *1000;
-  // console.log(dateTimeElement);
-  // let timezoneElement = response.data.timezone * 1000;
-  // console.log(timezoneElement);
-  // let newDate= new Date(response.data.dt*1000-(response.data.timezone));
-  // console.log(newDate);
+
+  let country = document.querySelector("#search-country");
+  let countryElement = response.data.country;
+  country.innerHTML = countryElement;
 
   let temperatureElement = document.querySelector("#current-temp-now");
   celsiusTemperature = response.data.temperature.current;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 
   let feelsLikeTemperature= document.querySelector("#feels-like");
-  feelsLikeTemperatureElement = Math.round(response.data.temperature.feels_like)
+  let feelsLikeTemperatureElement = Math.round(response.data.temperature.feels_like)
   feelsLikeTemperature.innerHTML = `Feels like: ${feelsLikeTemperatureElement}°`;
 
   // let temperatureMaxElement =document.querySelector("#current-temp-max");
@@ -150,7 +146,6 @@ function showCurrentWeather(response) {
     currentWind.innerHTML = `Wind: ${wind}km/h 💨`;
   } else if (units === "imperial") {
     wind = Math.round(response.data.wind.speed);
-    console.log(wind);
     currentWind.innerHTML = `Wind: ${wind}mph 💨`;
   }
   
