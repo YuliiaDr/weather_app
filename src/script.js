@@ -1,3 +1,4 @@
+// Date
 
 function formatDate(){
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -50,6 +51,10 @@ function showMonthDate(timestamp){
   return (monthDate);
 }
 
+
+
+// Forecast
+
 function displayForecast(response) {
   let forecast = response.data.daily;
 
@@ -97,6 +102,90 @@ function displayForecast(response) {
 function getForecast(coordinates) {
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayForecast);
+}
+
+
+
+// Current
+
+function setQuote(response){
+  let iconCondition = response;
+  let blockquote = document.querySelector("#blockquote");
+
+    switch (iconCondition) {
+      case "clear-sky-day":
+        blockquote.innerHTML = `“Keep your face to the sun and you will never see the shadows.”`;
+        break;
+
+      case "clear-night-sky":
+        blockquote.innerHTML = `“Look at the stars. See their beauty. And in that beauty, see yourself.”`;
+        break;
+
+      case "few-clouds-day":
+        blockquote.innerHTML = `“A cloudless plain blue sky is like a flowerless garden.”`;
+        break;
+      
+      case "few-clouds-night":
+        blockquote.innerHTML = `“The night sky is a miracle of infinitude.”`;
+        break;
+      
+      case "scattered-clouds-day":
+        blockquote.innerHTML = `“Even when clouds grow thick, the sun still pours its light earthward.”`;
+        break;
+      
+      case "scattered-clouds-night":
+        blockquote.innerHTML = `“When the sky is totally covered by the dark clouds, be strong enough to see the bright stars beyond them.”`;
+        break;
+      
+      case "broken-clouds-day":
+        blockquote.innerHTML =`“Clouds can never hide the sun forever, so don't complain about clouds but never forget to welcome the sun.”`;
+
+        break;
+      
+      case "broken-clouds-night":
+        blockquote.innerHTML = `“Above the cloud with its shadow is the star with its light.”`;
+        break;
+      
+      case "shower-rain-day":
+        blockquote.innerHTML = `“Rain is grace; rain is the sky descending to the earth; without rain, there would be no life.”`;
+        break;
+      
+      case "shower-rain-night":
+        blockquote.innerHTML = `“The rain will stop, the night will end, the hurt will fade. Hope is never so lost that it can’t be found.”`;
+        break;
+
+      case "rain-day":
+        blockquote.innerHTML = `“The nicest thing about the rain is that it always stops. Eventually.”`;
+        break;
+
+      case "rain-night":
+        blockquote.innerHTML = `“Let the rain beat upon your head with silver liquid drops. It plays a little sleep song on our roof at night...”`;
+        break;
+      
+      case "thunderstorm-day":
+        blockquote.innerHTML = `“Don’t wait for the storms of your life to pass. Learn to dance in the rain.”`;
+        break;
+      
+      case "thunderstorm-night":
+        blockquote.innerHTML = `“The more violent the storm, the quicker it passes.”`;
+        break;
+      
+      case "snow-day":
+        blockquote.innerHTML = `“When it snows, you have two choices: shovel or make snow angels.”`;
+        break;
+
+      case "snow-night":
+        blockquote.innerHTML = `“When snow falls, nature listens...”`;
+        break;
+
+      case "mist-day":
+        blockquote.innerHTML = `“Don't be afraid to go into the mist. Be excited because you don't know where you will end up.”`;
+        break;
+
+      case "mist-night":
+        blockquote.innerHTML = `“Beyond the mist lies clarity.”`;
+        break;
+    }
 }
 
 function showCurrentWeather(response) {
@@ -150,12 +239,15 @@ function showCurrentWeather(response) {
   }
   
   let iconElement = document.querySelector("#icon");
+  let iconCondition = response.data.condition.icon;
   
   iconElement.setAttribute(
     "src",
     response.data.condition.icon_url,
   );
-  iconElement.setAttribute("alt", response.data.condition.icon);
+  iconElement.setAttribute("alt", iconCondition);
+
+  setQuote(iconCondition);
 
   getForecast(response.data.coordinates);
 }

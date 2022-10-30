@@ -28,12 +28,6 @@ ul {
   padding-left: 0;              
 }
 
-.blockquote {
-  font-size: 16px;
-  font-style: italic;
-  font-weight: normal;
-}
-
 .container {
   padding: 40px;
 }
@@ -58,10 +52,15 @@ ul {
 
 .info {
   padding: 0 20px;
+  min-width: 200px;
+}
+
+.search-form {
+  padding-top: 12px;
 }
 
 .search {
-  width: 200px;
+  width: 180px;
   font-size: 14px;
   margin: 5px;
   padding: 5px;
@@ -81,6 +80,7 @@ ul {
   width: 85px;
   height: 45px;
   color: white;
+  margin-top: 11px;
   margin-left: 10px;
   text-align: center;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
@@ -159,6 +159,14 @@ ul {
   margin: 10px auto;
   display: block;
   height: auto;
+}
+
+.blockquote {
+  max-width: 500px;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
 }
 
 .current-city-extra {
