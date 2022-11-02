@@ -90,7 +90,7 @@ ul {
   border: 2px solid rgba(0,0,0,.125);
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgb(0 0 0 / 30%);
-  padding: 25px;
+  padding: 15px;
   display: flex;
   flex-wrap: wrap;
   margin: 30px auto;
@@ -128,16 +128,27 @@ ul {
   text-align: center;
 }
 
+.city {
+  margin-bottom: 0px;
+}
+
 .current-temp {
-  padding: 25px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  /* margin-bottom: 0px; */
+}
+
+.current-city-main {
+  padding-top: 15px;
 }
 
 .current-temp-now {
   font-size: 32px;
-  font-weight: 900px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,.125);
+}
+
+#feels-like {
+  margin-bottom: 0px;
+  text-align: center;
 }
 
 /* #current-temp-min {
@@ -227,7 +238,6 @@ ul {
 
 .card-temp-max {
   font-size: 16px;
-  font-weight: 900px;
 }
 
 
