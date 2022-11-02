@@ -134,7 +134,7 @@ function setQuote(response){
         blockquote.innerHTML = `“Keep your face to the sun and you will never see the shadows.”`;
         break;
 
-      case "clear-night-sky":
+      case "clear-sky-night":
         blockquote.innerHTML = `“Look at the stars. See their beauty. And in that beauty, see yourself.”`;
         break;
 
