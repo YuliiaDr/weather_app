@@ -97,7 +97,6 @@ function displayForecast(response) {
               }"
                 alt= "";
                 class = "card-img-top"
-                width="42"
               />
               <p class="card-text card-text-temp" id = "temperature-forecast">
                 <span class="card-temp-max">${Math.round(forecastDay.temperature.maximum
