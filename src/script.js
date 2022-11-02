@@ -1,22 +1,3 @@
-let currentDate = new Date();
-let dateElement = document.querySelector("#dayMonthYear");
-dateElement.innerHTML = formatDate();
-let timeElement = document.querySelector("#hoursMinutes");
-timeElement.innerHTML = formatTime();
-let celsiusTemperature = null;
-let cityInputElement = "";
-let units = "metric";
-// let apiKey = "949b631c45785fe73d2a88477803dea22";
-let apiKey = "9422f0o3bf27abc2b46fcabt0cf2c5f3";
-// let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
-let fahrenheitLink = document.querySelector("#fahrenheit-link-current");
-fahrenheitLink.addEventListener("click", showFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link-current");
-celsiusLink.addEventListener("click", showCelsius);
-
-search("Kyiv");
-
 
 //-------------------------------------------------- Background's Setting
 
@@ -56,7 +37,7 @@ function formatDate(){
   let year = currentDate.getFullYear();
   
   let fullDate = `${day} ${month} ${date}, ${year}`;
-  return `Last updated at <br> ${fullDate}`;
+  return `Last updated: <br> ${fullDate}`;
 }
 
 function formatTime() {
@@ -358,3 +339,23 @@ function showCelsius(event) {
   units = "metric";
   search(cityInputElement);
 }
+
+
+//-------------------------------------------------- Global Variables
+
+let currentDate = new Date();
+let dateElement = document.querySelector("#dayMonthYear");
+dateElement.innerHTML = formatDate();
+let timeElement = document.querySelector("#hoursMinutes");
+timeElement.innerHTML = formatTime();
+let celsiusTemperature = null;
+let cityInputElement = "";
+let units = "metric";
+let apiKey = "9422f0o3bf27abc2b46fcabt0cf2c5f3";
+let fahrenheitLink = document.querySelector("#fahrenheit-link-current");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link-current");
+celsiusLink.addEventListener("click", showCelsius);
+
+search("Kyiv");
