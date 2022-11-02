@@ -1,15 +1,19 @@
 body {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/050/708/original/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner.jpg?1667111957");
-  background-repeat: no-repeat;
   background-position: center center;
-  background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
   color: white;
   font-family: 'Helvetica', sans-serif;
+}
+
+body.day {
+  background: linear-gradient(76.8deg, rgb(81, 41, 122) 3.6%, rgb(63, 165, 205) 90.4%);
+}
+
+body.night {
+  background: linear-gradient(76.8deg, rgb(121, 45, 129) 3.6%, rgb(57, 50, 158) 90.4%);
 }
 
 a {
@@ -28,12 +32,13 @@ ul {
   padding-left: 0;              
 }
 
+
+ 
+/*-------------------------------------------------- Header styles */
+
 .container {
   padding: 40px;
 }
- 
-
-/* Header styles */
 
 .header-section {
   display: flex;
@@ -52,7 +57,7 @@ ul {
 
 .info {
   padding: 0 20px;
-  min-width: 200px;
+  min-width: 250px;
 }
 
 .search-form {
@@ -76,21 +81,8 @@ ul {
   transition: all 2.5ms ease-in-out;
 }
 
-.current-location-info {
-  width: 85px;
-  height: 45px;
-  color: white;
-  margin-top: 11px;
-  margin-left: 10px;
-  text-align: center;
-  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: 10px;
-  transition: all 2.5ms ease-in-out;
-}
 
-
-/* Current weather styles */
+/*-------------------------------------------------- Current weather styles */
 
 .current {
   max-width: 1000px;
@@ -113,19 +105,31 @@ ul {
   transform: scale(1.1);
 }
 
+.current-location-info {
+  width: 85px;
+  height: 45px;
+  color: white;
+  margin-top: 11px;
+  margin-left: 10px;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 10px;
+  transition: all 2.5ms ease-in-out;
+}
+
 .current-city-extra,
 .current-city-main,
 .current- image {
   margin: 0 auto;
 }
 
-#search-city {
+.current-city-main,
+.current- image {
   text-align: center;
 }
 
 .current-temp {
   padding: 25px;
-  text-align: center;
 }
 
 .current-temp-now {
@@ -139,6 +143,11 @@ ul {
 /* #current-temp-min {
   font-size: 12px;
 } */
+
+#icon,
+.card-img-top {
+  filter:  brightness(95%) contrast(255%);
+}
 
 .active {
   color: white;
@@ -178,7 +187,7 @@ ul {
 }
 
 
-/* Card styles */
+/*--------------------------------------------------Card styles */
 
 .card-body {
   text-align: center;
@@ -222,7 +231,7 @@ ul {
 }
 
 
-/* Footer styles */
+/*--------------------------------------------------Footer styles */
 
 .signature {
   font-family: 'PT Mono', monospace;

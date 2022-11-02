@@ -1,4 +1,49 @@
-// Date
+let currentDate = new Date();
+let dateElement = document.querySelector("#dayMonthYear");
+dateElement.innerHTML = formatDate();
+let timeElement = document.querySelector("#hoursMinutes");
+timeElement.innerHTML = formatTime();
+let celsiusTemperature = null;
+let cityInputElement = "";
+let units = "metric";
+// let apiKey = "949b631c45785fe73d2a88477803dea22";
+let apiKey = "9422f0o3bf27abc2b46fcabt0cf2c5f3";
+// let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+let fahrenheitLink = document.querySelector("#fahrenheit-link-current");
+fahrenheitLink.addEventListener("click", showFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link-current");
+celsiusLink.addEventListener("click", showCelsius);
+
+search("Kyiv");
+
+
+//-------------------------------------------------- Background's Setting
+
+function setBackgroundColor(response){
+  let iconCondition = response;
+  let background = document.querySelector("#background");
+ 
+  if (iconCondition === "clear-sky-day"||
+      iconCondition === "scattered-clouds-day"||
+      iconCondition === "few-clouds-day"||
+      iconCondition === "broken-clouds-day"||
+      iconCondition === "rain-day"||
+      iconCondition === "shower-rain-day"||
+      iconCondition === "thunderstorm-day"||
+      iconCondition === "snow-day"||
+      iconCondition === "mist-day"
+  ) {
+    background.classList.add("day");
+    background.classList.remove("night");
+  } else {
+    background.classList.add("night");
+    background.classList.remove("day");
+  }
+}
+
+
+//-------------------------------------------------- Date
 
 function formatDate(){
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -26,13 +71,6 @@ function formatTime() {
   return time;
 }
 
-let currentDate = new Date();
-let dateElement = document.querySelector("#dayMonthYear");
-dateElement.innerHTML = formatDate();
-let timeElement = document.querySelector("#hoursMinutes");
-timeElement.innerHTML = formatTime();
-
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -52,8 +90,7 @@ function showMonthDate(timestamp){
 }
 
 
-
-// Forecast
+//-------------------------------------------------- Forecast
 
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -71,7 +108,7 @@ function displayForecast(response) {
             <div class="card-body">
               <h3 class="card-title">${formatDay(forecastDay.time)}
               </h3>
-              <p class="card-text card-text-date" #month-date-forecast>${showMonthDate(forecastDay.time)} 
+              <p class="card-text card-text-date" id = "month-date-forecast">${showMonthDate(forecastDay.time)} 
               </p>
               <img
               src="${
@@ -81,7 +118,7 @@ function displayForecast(response) {
                 class = "card-img-top"
                 width="42"
               />
-              <p class="card-text card-text-temp" id = "month-date-forecast">
+              <p class="card-text card-text-temp" id = "temperature-forecast">
                 <span class="card-temp-max">${Math.round(forecastDay.temperature.maximum
                 )}°</span>
                 <span class="card-temp-min"> ${Math.round(forecastDay.temperature.minimum
@@ -105,8 +142,7 @@ function getForecast(coordinates) {
 }
 
 
-
-// Current
+//-------------------------------------------------- Searched City Info
 
 function setQuote(response){
   let iconCondition = response;
@@ -139,7 +175,6 @@ function setQuote(response){
       
       case "broken-clouds-day":
         blockquote.innerHTML =`“Clouds can never hide the sun forever, so don't complain about clouds but never forget to welcome the sun.”`;
-
         break;
       
       case "broken-clouds-night":
@@ -147,7 +182,7 @@ function setQuote(response){
         break;
       
       case "shower-rain-day":
-        blockquote.innerHTML = `“Rain is grace; rain is the sky descending to the earth; without rain, there would be no life.”`;
+        blockquote.innerHTML = `“The nicest thing about the rain is that it always stops. Eventually.”`;
         break;
       
       case "shower-rain-night":
@@ -155,7 +190,7 @@ function setQuote(response){
         break;
 
       case "rain-day":
-        blockquote.innerHTML = `“The nicest thing about the rain is that it always stops. Eventually.”`;
+        blockquote.innerHTML = `“Rain is grace; rain is the sky descending to the earth; without rain, there would be no life.”`;
         break;
 
       case "rain-night":
@@ -179,14 +214,17 @@ function setQuote(response){
         break;
 
       case "mist-day":
-        blockquote.innerHTML = `“Don't be afraid to go into the mist. Be excited because you don't know where you will end up.”`;
+        blockquote.innerHTML = `“Don't be afraid to go into the fog. Be excited because you don't know where you will end up.”`;
         break;
 
       case "mist-night":
-        blockquote.innerHTML = `“Beyond the mist lies clarity.”`;
+        blockquote.innerHTML = `“Beyond the fog lies clarity.”`;
         break;
     }
 }
+
+
+//-------------------------------------------------- Current Weather
 
 function showCurrentWeather(response) {
   cityInputElement = response.data.city;
@@ -199,9 +237,9 @@ function showCurrentWeather(response) {
     currentCity.innerHTML = cityInputElement;
   }
 
-  let country = document.querySelector("#search-country");
-  let countryElement = response.data.country;
-  country.innerHTML = countryElement;
+  // let country = document.querySelector("#search-country");
+  // let countryElement = response.data.country;
+  // country.innerHTML = countryElement;
 
   let temperatureElement = document.querySelector("#current-temp-now");
   celsiusTemperature = response.data.temperature.current;
@@ -247,10 +285,15 @@ function showCurrentWeather(response) {
   );
   iconElement.setAttribute("alt", iconCondition);
 
+  setBackgroundColor(iconCondition)
+
   setQuote(iconCondition);
 
   getForecast(response.data.coordinates);
 }
+
+
+//-------------------------------------------------- Search
 
 function search(city) { 
   
@@ -279,6 +322,8 @@ function handleSubmit(event){
 }
 
 
+//-------------------------------------------------- Current Location Info
+
 function showCurrentLocation(location) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${location.coords.longitude}&lat=${location.coords.latitude}&key=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(showCurrentWeather);
@@ -296,6 +341,8 @@ let currentBtn= document.querySelector("#current-location");
 currentBtn.addEventListener("click", getCurrentLocation);
 
 
+//-------------------------------------------------- Degrees Conversion
+
 function showFahrenheit(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
@@ -311,16 +358,3 @@ function showCelsius(event) {
   units = "metric";
   search(cityInputElement);
 }
-
-let celsiusTemperature = null;
-let cityInputElement = "";
-let units = "metric";
-let apiKey = "9422f0o3bf27abc2b46fcabt0cf2c5f3";
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link-current");
-fahrenheitLink.addEventListener("click", showFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link-current");
-celsiusLink.addEventListener("click", showCelsius);
-
-search("Kyiv");
