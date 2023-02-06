@@ -15,159 +15,157 @@
 </head>
 <body class="day" id = "background">
   <div class="container">
-
-  <header>
-    <div class="header-section">
-      <div class="info">
-        <h1 id = "current-city">Weather Forecast</h1>
-        <div class = "current-date">
-          <p id="dayMonthYear"></p>
-          <p id = "hoursMinutes"></p>
-        </div>
-      </div>
-      <div class="nav">
-        <form class="search-form" id = "search-form">
-          <input type="search" placeholder="Search for a city" class="search" autofocus autocomplete="off" id="search-text-input">
-          <button
-            type="submit"
-            title="Search city"
-            class="btn btn-outline-light">
-            <i class="fa-solid fa-magnifying-glass-location"></i>
-        </button>
-        </form>
-        <button type= "submit" title = "Search current location" class= "btn btn-outline-light current-location-info" id="current-location"><i class="fa-solid fa-location-dot"></i></button>
-      </div>
-    </div>
-  </header>
-  
-  <section class="current-forecast">
-    <div class="current grid">
-      <div class="current-city-main g-col-6">
-        <h2 class="city">
-          <span id = "search-city"></span>
-          <!-- ,  -->
-          <!-- <span id = "search-country"></span> -->
-        </h2>
-        <p class="current-temp">
-          <span class="current-temp-now float-left" id="current-temp-now"></span>
-            <span class="units">
-              <a href="#" id = "celsius-link-current" class="active">°C</a> | 
-              <a href="#" id = "fahrenheit-link-current">°F</a>
-            </span>
-          <!-- <span id="current-temp-max"></span>° / 
-          <span id="current-temp-min"></span>° -->
-        </p>
-        <p id= "feels-like"></p>
-      </div>
-      <div class="current-image g-col-2">
-        <img src="#" alt="Weather conditions" width="200" id="icon">
-      </div>
-      <div class="current-city-extra g-col-4">
-        <ul class="current-conditions">
-          <li id="description"></li>
-          <li id="humidity"></li>
-          <li id="wind"></li>
-        </ul>
-        <blockquote>
-          <p class = "blockquote" id="blockquote">
-          </p>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <div class="weather-forecast" id="forecast">
-    <!-- <div class="row row-cols-1 row-cols-md-5 g-5">
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Tuesday
-            </h3>
-            <p class="card-text card-text-date">
-              10 / 11  
-            </p>
-            <img src="images/cloud.png" class="card-img-top" alt="Weather conditions">
-            <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
-              <br>
-              22°C
-            </p>
+    <header>
+      <div class="header-section">
+        <div class="info">
+          <h1 id = "current-city">Weather Forecast</h1>
+          <div class = "current-date">
+            <p id="dayMonthYear"></p>
+            <p id = "hoursMinutes"></p>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Wednesday
-            </h3>
-            <p class="card-text card-text-date">
-              10 / 12  
-            </p>
-            <img src="images/rain.png" class="card-img-top" alt="Weather conditions">
-            <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
-              <br>
-              22°C
-            </p>
-          </div>
+        <div class="nav">
+          <form class="search-form" id = "search-form">
+            <input type="search" placeholder="Search for a city" class="search" autofocus autocomplete="off" id="search-text-input">
+            <button
+              type="submit"
+              title="Search city"
+              class="btn btn-outline-light">
+              <i class="fa-solid fa-magnifying-glass-location"></i>
+          </button>
+          </form>
+          <button type= "submit" title = "Search current location" class= "btn btn-outline-light current-location-info" id="current-location"><i class="fa-solid fa-location-dot"></i></button>
         </div>
       </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Thursday
-            </h3>
-            <p class="card-text card-text-date">
-              10 / 13  
+    </header>
+    <main>
+      <section class="current-forecast">
+        <div class="current grid">
+          <div class="current-city-main g-col-6">
+            <h2 class="city">
+              <span id = "search-city"></span>
+              <!-- ,  -->
+              <!-- <span id = "search-country"></span> -->
+            </h2>
+            <p class="current-temp">
+              <span class="current-temp-now float-left" id="current-temp-now"></span>
+                <span class="units">
+                  <a href="#" id = "celsius-link-current" class="active">°C</a> | 
+                  <a href="#" id = "fahrenheit-link-current">°F</a>
+                </span>
+              <!-- <span id="current-temp-max"></span>° / 
+              <span id="current-temp-min"></span>° -->
             </p>
-            <img src="images/sun_and_rain.png" class="card-img-top" alt="Weather conditions" width="500">
-            <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
-              <br>
-              22°C
-            </p>
+            <p id= "feels-like"></p>
+          </div>
+          <div class="current-image g-col-2">
+            <img src="#" alt="Weather conditions" width="200" id="icon">
+          </div>
+          <div class="current-city-extra g-col-4">
+            <ul class="current-conditions">
+              <li id="description"></li>
+              <li id="humidity"></li>
+              <li id="wind"></li>
+            </ul>
+            <blockquote>
+              <p class = "blockquote" id="blockquote">
+              </p>
+            </blockquote>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-body mt-auto">
-            <h3 class="card-title">Friday
-            </h3>
-            <p class="card-text card-text-date">
-              10 / 14  
-            </p>
-            <img src="images/snow.png" class="card-img-top" alt="Weather conditions">
-            <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
-              <br>
-              22°C
-            </p>
+      </section>
+      <div class="weather-forecast" id="forecast">
+        <!-- <div class="row row-cols-1 row-cols-md-5 g-5">
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Tuesday
+                </h3>
+                <p class="card-text card-text-date">
+                  10 / 11  
+                </p>
+                <img src="images/cloud.png" class="card-img-top" alt="Weather conditions">
+                <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
+                  <br>
+                  22°C
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title">Saturday
-            </h3>
-            <p class="card-text card-text-date">
-              10 / 15  
-            </p>
-            <img src="images/thunder.png" class="card-img-top" alt="Weather conditions">
-            <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
-              <br>
-              22°C
-            </p>
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Wednesday
+                </h3>
+                <p class="card-text card-text-date">
+                  10 / 12  
+                </p>
+                <img src="images/rain.png" class="card-img-top" alt="Weather conditions">
+                <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
+                  <br>
+                  22°C
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Thursday
+                </h3>
+                <p class="card-text card-text-date">
+                  10 / 13  
+                </p>
+                <img src="images/sun_and_rain.png" class="card-img-top" alt="Weather conditions" width="500">
+                <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
+                  <br>
+                  22°C
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-body mt-auto">
+                <h3 class="card-title">Friday
+                </h3>
+                <p class="card-text card-text-date">
+                  10 / 14  
+                </p>
+                <img src="images/snow.png" class="card-img-top" alt="Weather conditions">
+                <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
+                  <br>
+                  22°C
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">Saturday
+                </h3>
+                <p class="card-text card-text-date">
+                  10 / 15  
+                </p>
+                <img src="images/thunder.png" class="card-img-top" alt="Weather conditions">
+                <p class="card-text card-text-temp"><span class="card-temp-max">27°C</span>
+                  <br>
+                  22°C
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
       </div>
-    </div> -->
-  </div>
-
-  <footer>
-    <P class="signature">
-      This project was coded by <a href="mailto:yuliia.demir1986@gmail.com" class="signature-link">Yuliia Demir</a> and is <a href="https://github.com/YuliiaDr/weather_app" class="signature-link"> open-sourced on GitHub</a> and <a href="https://app.netlify.com/sites/weatherapponline/overview" class="signature-link">hosted on Netlify</a>
-    </P>
-  </footer>
+    </main>
+    <footer>
+      <P class="signature">
+        This project was coded by <a href="mailto:yuliia.demir1986@gmail.com" class="signature-link">Yuliia Demir</a> and is <a href="https://github.com/YuliiaDr/weather_app" class="signature-link"> open-sourced on GitHub</a> and <a href="https://app.netlify.com/sites/weatherapponline/overview" class="signature-link">hosted on Netlify</a>
+      </P>
+    </footer>
   </div>
   <script src= "src/script.js">
   </script>
-  </body>
+</body>
 </html>

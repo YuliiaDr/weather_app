@@ -94,7 +94,6 @@ ul {
   display: flex;
   flex-wrap: wrap;
   margin: 30px auto;
-
   overflow: hidden;
   transition: all 0.5s ease-in-out;
 }
@@ -119,12 +118,12 @@ ul {
 
 .current-city-extra,
 .current-city-main,
-.current- image {
+.current-image {
   margin: 0 auto;
 }
 
 .current-city-main,
-.current- image {
+.current-image {
   text-align: center;
 }
 
